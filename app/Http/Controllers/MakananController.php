@@ -35,7 +35,7 @@ class MakananController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateMakananRequest $request)
+    public function store(Request $request)
     {
         Makanan::create($request ->all());
         return redirect('/makanan');
