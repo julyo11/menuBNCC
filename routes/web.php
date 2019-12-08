@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/makanan/create','MakananController@create');
+Route::post('/makanan', 'MakananController@store');
+Route::get('/makanan', 'MakananController@index');
+Route::delete('makanan/{makanan}','MakananController@destroy');
+Route::get('makanan/{makanan}/edit','MakananController@edit');
+Route::put('makanan/{makanan}','MakananController@update');
