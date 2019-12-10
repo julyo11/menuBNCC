@@ -7,7 +7,6 @@
             <th>Name</th>
             <th>Description</th>
             <th>Price</th>
-            <th>Actions</th>
         </thead>
     </table>
     <tbody>
@@ -29,4 +28,3 @@
         @endforeach
     </tbody>
     @endsection
-    
