@@ -38,6 +38,12 @@ class MakananController extends Controller
     public function store(Request $request)
     {
         Makanan::create($request ->all());
+        $makanan = $request->all();
+        $filename = $this->constructFileName($makanan);
+        Storage::disk('local')->putFileAs('makanan/',$makanan['makanan_picture'],$filename);
+        $makanan['makanan_picture'] = $filename;
+        Product::create($makanan);
+        Session::flash('success','Successfully Create a Makanan');
         return redirect('/makanan');
     }
 
@@ -88,3 +94,10 @@ class MakananController extends Controller
         return redirect('/makanan');
     }
 }
+// private function constructFileName($product){
+//     $image = $makanan['makanan_picture'];
+//     $fileExt = $image->getClientOriginalExtension();
+//     $currDate = (string)date('mdY',time());
+//     $filename = $currDate."_".$makanan['makanan_name']."_".$makanan['makanan_merk'].".".$fileExt;
+//     return $filename;
+// }

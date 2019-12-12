@@ -12,11 +12,10 @@
     <tbody>
         @foreach($makanans as $makanan)
         <tr>
-            <td>{{$product->id}}</td>
-            <td>{{$product->name}}</td>
-            <td>{{$product->description}}</td>
-            <td>{{$product->price}}</td>
-            <td>
+            <td>{{$makanan->id}}</td>
+            <td>{{$makanan->name}}</td>
+            <td>{{$makanan->description}}</td>
+            <td>{{$makanan->price}}</td>
             <a href="{{url('makanan/'.$makanan->id.'/edit')}}">Edit</a>
                 <form action="{{url('makanan/'.$makanan->id)}}" method="POST">
                     @csrf
